@@ -8,7 +8,7 @@ class Header extends React.Component {
 				<div classname="Nav-menus">
 					<div classname="Nav-brand">
 						<a classname="Nav-brand-logo" href="/">
-							Instagram
+							<img src="src/sprite.png" alt="Instagram"/>
 						</a>
 					</div>
 				</div>
