@@ -27,7 +27,7 @@ let cors = require("cors");
 	  a: {
 	    id: "a",
 	    nickname: "Chris",
-	    avatar: "https://www.laravelnigeria.com/img/chris.jpg"
+	    avatar: "https://i.imgur.com/6KWn4Kg.jpg"
 	  }
 
 	};
@@ -38,26 +38,26 @@ let cors = require("cors");
 	      id: "a",
 	      user: userslist["a"],
 	      caption: "Moving the community!",
-	      image: "https://pbs.twimg.com/media/DOXI0IEXkAAkokm.jpg"
+	      image: "https://i.imgur.com/SWyyhY3.jpg"
 	    },
 	    b: {
 	      id: "b",
 	      user: userslist["a"],
 	      caption: "Angular Book :)",
 	      image:
-	        "https://cdn-images-1.medium.com/max/1000/1*ltLfTw87lE-Dqt-BKNdj1A.jpeg"
+	        "https://i.imgur.com/G11fKE4.jpg?1"
 	    },
 	    c: {
 	      id: "c",
 	      user: userslist["a"],
 	      caption: "Me at Frontstack.io",
-	      image: "https://pbs.twimg.com/media/DNNhrp6W0AAbk7Y.jpg:large"
+	      image: "https://i.imgur.com/OYmL85I.jpg?1"
 	    },
 	    d: {
 	      id: "d",
 	      user: userslist["a"],
 	      caption: "Moving the community!",
-	      image: "https://pbs.twimg.com/media/DOXI0IEXkAAkokm.jpg"
+	      image: "https://i.imgur.com/q4AQBna.jpg"
 	    }
 	  }
 	};

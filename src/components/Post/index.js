@@ -4,11 +4,15 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 
 class Post extends Component {
+
   render() {
-    const nickname = this.props.nickname;
-    const avatar = this.props.avatar;
-    const image = this.props.image;
-    const caption = this.props.caption;
+    console.log(this.props);
+    const { image, caption } = this.props.post
+    const { nickname, avatar } = this.props.post.user
+    // const nickname = this.props.nickname;
+    // const avatar = this.props.avatar;
+    // const image = this.props.image;
+    // const caption = this.props.caption;
     return (
       <article className="Post" ref="Post">
         <header>

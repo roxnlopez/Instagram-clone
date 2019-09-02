@@ -4,11 +4,11 @@ import "./Header.css";
 class Header extends React.Component {
 	render() {
 		return (
-			<nav classname="Nav">
-				<div classname="Nav-menus">
-					<div classname="Nav-brand">
-						<a classname="Nav-brand-logo" href="/">
-							<img src="src/sprite.png" alt="Instagram"/>
+			<nav className="Nav">
+				<div className="Nav-menus">
+					<div className="Nav-brand">
+						<a className="Nav-brand-logo" href="/">
+							<img src="../../sprite.png" alt="Instagram"/>
 						</a>
 					</div>
 				</div>
