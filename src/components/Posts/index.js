@@ -3,18 +3,22 @@ import "./Posts.css";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import Post from "../Post";
+import Notifier from "../Notifier";
+import registerServiceWorker from './registerServiceWorker';
 
 class Posts extends Component {
-	constructor(props) {
-		super(props);
+	constructor() {
+		super();
 		this.state = { posts: [] };
+		this.offline = !navigator.onLine;
 	}	
 
 	componentDidMount = () => {
-		//request permission
-		Notification.requestPermission();
-
-		this.props.apollo_client.query({query: gql`
+		if(!navigator.onLine){
+			this.setState({ posts: JSON.parse(localStorage.getItem("posts")) });
+		}else{
+			this.props.apollo_client
+			.query({query: gql`
 	        {
 	          posts(user_id: "a"){
 	            id
@@ -27,11 +31,18 @@ class Posts extends Component {
 	          }
 	        }
 	      `})
-		.then(({data}) => {
-			console.log('me!', data.posts)
-			this.setState({ posts: data.posts })
-		})
+
+			.then((response => {
+			this.setState({ posts: response.data.posts });
+			localStorage.setItem('posts', JSON.stringify(response.data.posts));
+		});
+		}
+
+		//request permission
+		Notification.requestPermission();
 	}
+
+	registerServiceWorker();
 
 	//suscribe to posts channel
 	this.posts_channel = this.props.pusher.suscribe('posts-channel');
@@ -65,7 +76,10 @@ class Posts extends Component {
 // }
 	
 	render = () => {
+		const notify = this.offline ? <Notifier data="Instagram Clone: Offline Mode" /> : <span />;
 		return ( 
+			<div>
+				{notify}
 			<div className="Posts">
 			this.state.posts
 				.slice(0)
@@ -81,6 +95,7 @@ class Posts extends Component {
 					))}
 			</div>
 			</div>
+			</div>	
 		);	
 	}	
 
